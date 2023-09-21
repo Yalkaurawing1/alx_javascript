@@ -6,5 +6,5 @@ function add(a, b) {
   }
   
   // The function is visible from outside and can be called with any 2 integers
-  console.log(add(3, 5)); // Prints 8
+  console.log(add(80, 9)); // Prints 89
   
