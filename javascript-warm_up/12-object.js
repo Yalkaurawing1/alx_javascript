@@ -1,8 +1,12 @@
 #!/usr/bin/node
-const myNumber = { 
-    type : 12,
-     type : 89
-     };
+let myObject = {
+    type: 'object',
+    value: 12
+  };
+  console.log(myObject);
 
-console.log(myNumber);
-
+   myObject = {
+    type: 'object',
+    value: 89
+  };
+  console.log(myObject);
