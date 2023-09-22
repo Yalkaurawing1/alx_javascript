@@ -1,10 +1,17 @@
 #!/usr/bin/node
-// Define a function that takes 2 parameters and returns their sum
+// This is a function that returns the addition of two integers
+// The function is visible from outside
+// The name of the function is add
+// The function does not use var
+
 function add(a, b) {
-    // Return the result of adding a and b
+  // Check if the arguments are integers
+  if (Number.isInteger(a) && Number.isInteger(b)) {
+    // Return the sum of the arguments
     return a + b;
+  } else {
+    // Throw an error if the arguments are not integers
+    throw new Error("The arguments must be integers");
   }
-  
-  // The function is visible from outside and can be called with any 2 integers
-  console.log(add(80, 9)); // Prints 89
-  
+}
+
