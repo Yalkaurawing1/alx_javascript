@@ -27,7 +27,7 @@ const myObject = {
   };
   
   // The code below uses the function and prints out the object
-  myObject.incr(funtion);
+  myObject.incr();
   console.log(myObject);
   myObject.incr();
   console.log(myObject);
