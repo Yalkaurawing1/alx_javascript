@@ -20,7 +20,7 @@ class Rectangle {
       // Loop through the height of the rectangle
       for (let i = 1; i <= this.height; i++) {
         const rectanglr_X = 'X'.repeat(this.width); 
-        console.log(x);
+        console.log(rectanglr_X);
       }
 
     }
