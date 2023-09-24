@@ -12,7 +12,7 @@ class Rectangle {
         this.height = h;
       } else {
         // Create an empty object
-        return {};
+        return 'Rectangle {}';
       }
     }
     // You can add any other methods or properties for the class here
