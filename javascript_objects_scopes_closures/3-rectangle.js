@@ -18,7 +18,7 @@ class Rectangle {
     // Define an instance method called print
     print() {
       // Loop through the height of the rectangle
-      for (let i = 0; i < this.height; i++) {
+      for (let i = 1; i <= this.height; i++) {
         const rectanglr_X = 'X'.repeat(this.width); 
         console.log(x);
       }
