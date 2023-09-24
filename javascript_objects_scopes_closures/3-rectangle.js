@@ -16,15 +16,15 @@ class Rectangle {
       }
     }
     // Define an instance method called print
-    print() {
+     print() {
       // Loop through the height of the rectangle
-      for (let i = 1; i <= this.height; i++) {
-        const rectanglr_X = 'X'.repeat(this.width); 
-        console.log(rectanglr_X);
+        for (let i = 1; i <= this.height; i++) {
+           const rectanglr_X = 'X'.repeat(this.width); 
+         console.log(rectanglr_X);
       }
 
     }
 
 }
 
-  
+module.exports = Rectangle;
