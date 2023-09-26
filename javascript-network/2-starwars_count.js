@@ -1,27 +1,34 @@
 #!/usr/bin/node
-
-// import request
+// Require the request module
 const request = require('request');
 
+// Get the API URL from the first argument
+const apiUrl = process.argv[2];
 
-// pass cmd line argument
-const url = process.argv[2];
+// Define the character ID of Wedge Antilles
 const parts = [];
 
-// make a GET request
-request.get(url, {encoding: 'utf-8'})
-.on('data', (data) => {
-    parts.push(data);
-})
-.on('complete', () => {
-    const resp = JSON.parse(parts);
-    let num_films = 0;
-    resp.results.forEach(function (actor) {
-       actor.characters.forEach((act) => {
-        if (act.includes('https://swapi-api.alx-tools.com/api/people/18')){
-            num_films++;
-        }
-       })
-    }) 
-    console.log(num_films);
-})
+// Make a GET request to the API URL
+request.get(apiUrl, (err, res, body) => {
+  // Check if there is an error
+  if (err) {
+    // Print the error message
+    console.error(err.message);
+  } else {
+    // Parse the JSON response
+    const data = JSON.parse(body);
+    // Initialize a counter for the number of movies
+    let movieCount = 0;
+    // Loop through the results array
+    for (let movie of data.results) {
+      // Check if the character ID is in the characters array
+      if (movie.characters.includes(`https://swapi-api.alx-tools.com/api/people/${characterId}/`)) {
+        // Increment the movie count
+        movieCount++;
+      }
+    }
+    // Print the number of movies
+    console.log(movieCount);
+  }
+});
+
