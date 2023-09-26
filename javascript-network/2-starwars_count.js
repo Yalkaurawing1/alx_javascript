@@ -1,14 +1,14 @@
 #!/usr/bin/node
-// Require the request module
+
+// import request
 const request = require('request');
 
-// Get the API URL from the first argument
-const apiUrl = process.argv[2];
 
-// Define the character ID of Wedge Antilles
+// pass cmd line argument
+const url = process.argv[2];
 const parts = [];
 
-// Make a GET request to the URL
+// make a GET request
 request.get(url, {encoding: 'utf-8'})
 .on('data', (data) => {
     parts.push(data);
