@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Login to the website</h1>
+    <div>
+    <input id="firstname" placeholder="Firstname" type="text">
+    <input id="email" placeholder="Email" type="text">
+    <button id="btn1">Log me in</button>
+    </div>
+    <h1>Cookies</h1>
+    <button id="btn2">Show the cookies</button>
+    
+    
+    <script>
+    const btn1 = document.getElementById('btn1');
+    const btn2 = document.getElementById('btn2');
+
+    function setCookies() {
+        const d = new Date();
+        const expDay = 10;
+        d.setTime(d.getTime() + (expDay * 24 * 60 * 60 * 1000));
+        const expires = "expires=" + d.toUTCString();
+        document.cookie = "firstname=" + document.getElementById('firstname').value;
+        document.cookie = "email=" + document.getElementById('email').value;
+        document.cookie = expires;
+        document.cookie = "path=/"
+    }
+
+    function showCookies() {
+        const email = getCookie('email');
+        const firstname = getCookie('firstname');
+        const p = document.createElement('p');
+        p.innerHTML = `Email: ${email} - Firstname: ${firstname}`;
+        document.body.appendChild(p);
+    }
+
+    function getCookie(name) {
+        let cname = name + "=";
+        let decodedCookie = decodeURIComponent(document.cookie);
+        let ca = decodedCookie.split(';');
+        for (let i = 0; i < ca.length; i++) {
+            let c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(cname) == 0) {
+                return c.substring(cname.length, c.length);
+            }
+        }
+        return "";
+    }
+
+    btn1.addEventListener('click', function () {
+        setCookies();
+    })
+
+    btn2.addEventListener('click', function () {
+        showCookies();
+    })
+    </script>
+</body>
+</html>
