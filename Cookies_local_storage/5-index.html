@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Items Available</h2>
+    <p id="para"></p>
+    <ul id="itemsList"></ul>
+    <script>
+        //array of available items in stock
+        const availableItems = ['Shampoo', 'Soap', 'Sponge', 'Water'];
+        let count = 0;
+
+        //check if local storage is available in browser
+        if (typeof localStorage !== "undefined") {
+            createStore();
+            displayCart();
+        } else {
+            alert('Sorry, your browser does not support web storage. Try again with a better one')
+        }
+
+
+        //add item to cart
+        function addItemToCart(item) {
+            localStorage.setItem(item, true);
+        }
+
+        function createStore() {
+            for (let i = 0; i < availableItems.length; i++) {
+                const uList = document.getElementById("itemsList");
+                let lItem = document.createElement("li");
+                const itemLink = document.createElement("a");
+                itemLink.textContent = availableItems[i];
+                itemLink.href = "#";
+                lItem.appendChild(itemLink);
+                uList.appendChild(lItem);
+                itemLink.addEventListener('click', function () {
+                    addItemToCart(availableItems[i]);
+                })
+            }
+        }
+
+        //retrieve local storage
+        function displayCart() {
+            if (localStorage) {
+                const p = document.createElement("p");
+                count = localStorage.length
+                p.textContent = `You previously had ${count} items in your cart`;
+                document.body.appendChild(p);
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>
